@@ -1,0 +1,58 @@
+name: paywise-frontend
+
+on:
+  push:
+    branches: ["dev"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      # Upload only what you need for production:
+      # - .next (build output)
+      # - public
+      # - package.json + package-lock.json
+      # - next.config.js (if you use it)
+      # - ecosystem config (for pm2)
+      - name: Rsync to VPS
+        uses: burnett01/rsync-deployments@6.0.0
+        with:
+          switches: -avzr --delete
+          path: |
+            .next
+            public
+            package.json
+            package-lock.json
+            next.config.js
+            ecosystem.config.js
+          remote_path: /var/www/paywise-frontend/app
+          remote_host: ${{ secrets.VPS_HOST }}
+          remote_user: ${{ secrets.VPS_USER }}
+          remote_key: ${{ secrets.VPS_SSH_KEY }}
+
+      - name: Install prod deps + restart PM2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script: |
+            cd /var/www/paywise-frontend/app
+            npm ci --omit=dev
+            pm2 start ecosystem.config.js || pm2 reload ecosystem.config.js
+            pm2 save

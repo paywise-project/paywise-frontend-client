@@ -4,40 +4,54 @@ import { apiRouterTypeAuthenticationTelegramLogin } from "@/lib/api";
 import { useEffect } from "react";
 import Header from "./_components/Header";
 import Wallet from "./_components/Wallet";
-import WebApp from "@twa-dev/sdk";
 
 export default function Home() {
-  const { user } = WebApp.initDataUnsafe;
-
   useEffect(() => {
-    async function login() {
+    let cancelled = false;
+
+    (async () => {
+      // Ensure we're in the browser
+      if (typeof window === "undefined") return;
+
+      // Import ONLY on client to avoid SSR "window is not defined"
+      const WebAppModule = await import("@twa-dev/sdk");
+      const WebApp = WebAppModule.default;
+
+      const user = WebApp?.initDataUnsafe?.user;
+      const telegramId = user?.id;
+
+      if (typeof telegramId !== "number") {
+        console.warn(
+          "No Telegram user id found. Are you running inside Telegram WebApp?",
+        );
+        return;
+      }
+
       try {
         const res = await apiRouterTypeAuthenticationTelegramLogin<true>({
           body: {
-            telegram_id: user?.id,
-            first_name: user?.first_name,
-            last_name: user?.last_name,
-            telegram_username: user?.username,
+            telegram_id: telegramId,
+            first_name: user?.first_name ?? "",
+            last_name: user?.last_name ?? "",
+            telegram_username: user?.username ?? "",
           },
           throwOnError: true,
         });
 
-        if (!res?.data) return;
+        if (!res?.data || cancelled) return;
 
         const { access_token, refresh_token, customer_uuid } = res.data;
-
         localStorage.setItem("access_token", access_token);
         localStorage.setItem("refresh_token", refresh_token);
         localStorage.setItem("customer_uuid", customer_uuid);
-
-        console.log("Tokens stored successfully");
       } catch (error) {
         console.error("Login failed:", error);
       }
-    }
-    if (!!WebApp) {
-      login();
-    }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return (
