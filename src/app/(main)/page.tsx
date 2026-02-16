@@ -10,7 +10,6 @@ export default function Home() {
     let cancelled = false;
 
     (async () => {
-      // Ensure we're in the browser
       if (typeof window === "undefined") return;
 
       // Import ONLY on client to avoid SSR "window is not defined"
