@@ -1,0 +1,8 @@
+# ~/.cloudflared/config.yml
+tunnel: paywise-tunnel
+credentials-file: /Users/mhossein/.cloudflared/b5e7f975-9df4-48ce-bf6e-aee2c6276122.json
+
+ingress:
+  - hostname: pwtest.mhossein.ir
+    service: http://localhost:3000
+  - service: http_status:404

@@ -1,26 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Fonts */
+  --font-sans:
+    "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+  /* Colors (design tokens) */
+  --color-bg: #050011;
+  --color-surface: color-mix(in oklab, white 6%, #050011); /* subtle card */
+  --color-surface-2: color-mix(
+    in oklab,
+    white 10%,
+    #050011
+  ); /* stronger card */
+  --color-border: color-mix(in oklab, white 12%, #050011);
+
+  --color-text: #ffffff;
+  --color-text-muted: color-mix(in oklab, white 85%, #050011);
+
+  --color-brand: #8552ff;
+  --color-brand-2: color-mix(in oklab, #8552ff 75%, white); /* lighter purple */
+  --color-accent: #abe39e;
+
+  /* Shadows (dark UI glow) */
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-glow-brand:
+    0 0 0 1px color-mix(in oklab, #8552ff 35%, transparent),
+    0 18px 60px color-mix(in oklab, #8552ff 25%, transparent);
+  --shadow-glow-accent:
+    0 0 0 1px color-mix(in oklab, #abe39e 30%, transparent),
+    0 18px 60px color-mix(in oklab, #abe39e 22%, transparent);
+
+  /* Radius */
+  --radius-lg: 1.25rem; /* ~20px */
+  --radius-xl: 1.75rem; /* ~28px */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer components {
+  .ds-container {
+    @apply mx-auto w-full max-w-6xl px-5;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  .ds-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-soft);
+    @apply p-6;
+  }
+
+  .ds-card--glow {
+    box-shadow: var(--shadow-soft), var(--shadow-glow-brand);
+  }
+
+  /* Typography */
+  .ds-h1 {
+    @apply text-4xl font-semibold tracking-tight sm:text-5xl;
+  }
+
+  .ds-h2 {
+    @apply text-2xl font-semibold tracking-tight sm:text-3xl;
+  }
+
+  .ds-body {
+    color: var(--color-text-muted);
+    @apply text-base leading-relaxed;
+  }
+
+  .ds-pill {
+    background: color-mix(in oklab, white 5%, #050011);
+    border-radius: 999px;
+    @apply px-4 py-2 text-sm font-medium;
+  }
+
+  .ds-btn {
+    border-radius: 999px;
+    @apply inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold transition;
+  }
+
+  .ds-btn--primary {
+    background: var(--color-brand);
+    color: white;
+    box-shadow: var(--shadow-glow-brand);
+  }
+
+  .ds-btn--primary:hover {
+    background: color-mix(in oklab, var(--color-brand) 85%, white);
+  }
+
+  .ds-btn--ghost {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: white;
+  }
+
+  .ds-btn--ghost:hover {
+    background: color-mix(in oklab, white 6%, #050011);
+  }
+
+  .ds-ring:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--color-bg),
+      0 0 0 4px color-mix(in oklab, var(--color-brand) 70%, white);
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+}
+
+/* Optional: background glow similar to the mock */
+.bg-radial-glow {
+  background:
+    radial-gradient(
+      900px 500px at 70% 30%,
+      color-mix(in oklab, var(--color-brand) 25%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 500px at 35% 70%,
+      color-mix(in oklab, var(--color-accent) 18%, transparent),
+      transparent 60%
+    ),
+    var(--color-bg);
 }

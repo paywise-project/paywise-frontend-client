@@ -4,24 +4,32 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "tunnel": "cloudflared tunnel --config .cloudflared/config.yml run paywise-tunnel",
+    "dev:tunnel": "concurrently -n NEXT,TUNNEL -c blue,green \"npm run dev\" \"npm run tunnel\"",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "gen:api": "openapi-ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.21",
+    "@twa-dev/sdk": "^8.0.2",
+    "@twa-dev/types": "^8.0.2",
+    "jalaali-js": "^1.2.8",
     "motion": "^12.34.0",
     "next": "16.1.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
-    "@hey-api/openapi-ts": "^0.92.3",
+    "@hey-api/openapi-ts": "^0.92.4",
     "@tailwindcss/postcss": "^4",
     "@tanstack/react-query-devtools": "^5.91.3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "^9.2.1",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
