@@ -12,7 +12,6 @@ export default function Home() {
     (async () => {
       if (typeof window === "undefined") return;
 
-      // Import ONLY on client to avoid SSR "window is not defined"
       const WebAppModule = await import("@twa-dev/sdk");
       const WebApp = WebAppModule.default;
 
