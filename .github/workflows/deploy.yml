@@ -25,12 +25,12 @@ jobs:
       - name: Upload build to VPS (rsync)
         uses: burnett01/rsync-deployments@6.0.0
         with:
-          switches: -avzr --delete
+          switches: -avzr --delete --exclude node_modules --exclude .git --exclude .github
           remote_host: ${{ secrets.VPS_HOST }}
           remote_user: ${{ secrets.VPS_USER }}
           remote_key: ${{ secrets.VPS_SSH_KEY }}
           remote_path: /var/www/paywise-frontend/app/
-          path: ".next/ public/ package.json package-lock.json next.config.ts ecosystem.config.js"
+          path: "./"
 
       - name: Install prod deps + restart app (PM2)
         uses: appleboy/ssh-action@v1.0.3
