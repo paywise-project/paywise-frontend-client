@@ -28,6 +28,11 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
 
+      - name: Debug build output
+        run: |
+          ls -la
+          ls -la .next || true
+
       # Upload only what you need for production:
       # - .next (build output)
       # - public
