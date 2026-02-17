@@ -41,6 +41,6 @@ jobs:
           script: |
             set -e
             cd /var/www/paywise-frontend/app
-            npm ci --omit=dev
+            npm ci
             pm2 start ecosystem.config.js || pm2 reload ecosystem.config.js
             pm2 save

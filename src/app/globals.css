@@ -1,129 +1,343 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap");
+/* src/app/globals.css */
 @import "tailwindcss";
 
+/* Tell Tailwind v4 where to scan for class names */
+@source "../**/*.{js,ts,jsx,tsx,mdx}";
+
+/* Optional: declare layers */
+@layer theme, base, components, utilities;
+
+/* -----------------------------
+   Theme tokens
+----------------------------- */
 @theme {
-  /* Fonts */
+  /* Typography */
   --font-sans:
-    "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    "Vazirmatn", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Arial;
 
-  /* Colors (design tokens) */
-  --color-bg: #050011;
-  --color-surface: color-mix(in oklab, white 6%, #050011); /* subtle card */
-  --color-surface-2: color-mix(
-    in oklab,
-    white 10%,
-    #050011
-  ); /* stronger card */
-  --color-border: color-mix(in oklab, white 12%, #050011);
+  /* Palette */
+  --color-bg: #f5f7fa; /* app background */
+  --color-surface: #ffffff; /* cards/nav/header */
+  --color-primary: #15967d; /* teal green */
+  --color-primary-2: #1ab395; /* gradient teal */
+  --color-text: #2c3e50; /* midnight blue text */
+  --color-muted: #7f8c8d; /* secondary text */
+  --color-muted-2: #bdc3c7; /* disabled/other */
+  --color-soft: #e8ecef; /* pressed/soft borders */
+  --color-danger: #ff6b6b; /* error/badge */
+  --color-danger-soft: #ffe8e8; /* danger bg */
+  --color-soft-brown: rgb(255, 243, 224);
 
-  --color-text: #ffffff;
-  --color-text-muted: color-mix(in oklab, white 85%, #050011);
-
-  --color-brand: #8552ff;
-  --color-brand-2: color-mix(in oklab, #8552ff 75%, white); /* lighter purple */
-  --color-accent: #abe39e;
-
-  /* Shadows (dark UI glow) */
-  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
-  --shadow-glow-brand:
-    0 0 0 1px color-mix(in oklab, #8552ff 35%, transparent),
-    0 18px 60px color-mix(in oklab, #8552ff 25%, transparent);
-  --shadow-glow-accent:
-    0 0 0 1px color-mix(in oklab, #abe39e 30%, transparent),
-    0 18px 60px color-mix(in oklab, #abe39e 22%, transparent);
+  /* Shadows */
+  --shadow-header: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-nav: 0 -4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-primary: 0 8px 24px rgba(21, 150, 125, 0.25);
 
   /* Radius */
-  --radius-lg: 1.25rem; /* ~20px */
-  --radius-xl: 1.75rem; /* ~28px */
+  --radius-sm: 0.5rem; /* 8 */
+  --radius-md: 0.625rem; /* 10 */
+  --radius-lg: 0.75rem; /* 12 */
+  --radius-xl: 1rem; /* 16 */
+  --radius-2xl: 1.25rem; /* 20 */
+  --radius-3xl: 1.5rem; /* 24 */
+
+  /* Layout */
+  --container-mobile: 480px;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-2)
+  );
 }
 
-@layer components {
-  .ds-container {
-    @apply mx-auto w-full max-w-6xl px-5;
+/* -----------------------------
+   Base
+----------------------------- */
+@layer base {
+  html {
+    direction: rtl;
   }
 
-  .ds-card {
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+
+    /* generic bottom spacing (safe for bottom bar/nav) */
+    padding-bottom: 96px;
+  }
+}
+
+/* -----------------------------
+   Components (general only)
+   IMPORTANT RULE:
+   - Only @apply Tailwind utilities
+   - Never @apply custom classes (pw-*)
+----------------------------- */
+@layer components {
+  /* Layout */
+  .pw-container {
+    max-width: var(--container-mobile);
+    margin-inline: auto;
+    @apply px-5;
+  }
+
+  .pw-header {
+    background: var(--color-surface);
+    box-shadow: var(--shadow-header);
+    @apply sticky top-0 z-50 flex items-center justify-between px-5 py-4;
+  }
+
+  .pw-title {
+    @apply text-[22px] font-bold;
+    color: var(--color-text);
+  }
+
+  .pw-section-header {
+    @apply text-base items-center flex gap-2 mb-3 font-semibold text-text;
+  }
+
+  /* Surface / Card */
+  .pw-surface {
     background: var(--color-surface);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-card);
+  }
+
+  .pw-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    @apply p-5;
+  }
+
+  .pw-card--compact {
+    @apply p-4;
+  }
+
+  /* Press interaction (generic helper class)
+  */
+  .pw-press {
+    @apply transition;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  .pw-press:active {
+    transform: scale(0.98);
+  }
+
+  /* Buttons */
+  .pw-btn {
+    border-radius: 14px;
+    padding: 16px;
+    font-size: 15px;
+    @apply inline-flex items-center justify-center gap-2 font-semibold transition select-none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  .pw-btn:active {
+    transform: scale(0.98);
+  }
+
+  .pw-btn--primary {
+    background: var(--color-primary);
+    color: #fff;
+  }
+  .pw-btn--primary:active {
+    background: #127a68;
+  }
+
+  .pw-btn--secondary {
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+  .pw-btn--secondary:active {
+    background: var(--color-soft);
+  }
+
+  .pw-btn--danger {
+    background: var(--color-danger);
+    color: #fff;
+  }
+  .pw-btn--danger:active {
+    background: #e85a5a;
+  }
+
+  .pw-icon-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    background: var(--color-bg);
+    color: var(--color-text);
+    @apply grid place-items-center transition select-none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  .pw-icon-btn:active {
+    background: var(--color-soft);
+    transform: scale(0.95);
+  }
+
+  /* Forms */
+  .pw-field {
+    @apply mb-5;
+  }
+
+  .pw-label {
+    @apply mb-2 block text-sm font-semibold;
+    color: var(--color-text);
+  }
+
+  .pw-input {
+    width: 100%;
+    border: 1px solid var(--color-soft);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    @apply px-4 py-3 text-[15px] transition;
+  }
+  .pw-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: #f9fafb;
+  }
+  .pw-input:disabled {
+    background: var(--color-bg);
+    color: var(--color-muted);
+  }
+
+  .pw-textarea {
+    min-height: 96px;
+    resize: vertical;
+  }
+
+  .pw-help {
+    @apply mt-1 text-xs leading-snug;
+    color: var(--color-muted);
+  }
+
+  /* Lists / Rows */
+  .pw-list {
+    @apply flex flex-col gap-3;
+  }
+
+  /* Row has its own :active press so you don't need pw-press */
+  .pw-row {
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    @apply flex items-center gap-3 p-4 transition;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  .pw-row:active {
+    transform: scale(0.98);
+  }
+
+  .pw-row.is-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* Badge */
+  .pw-badge {
+    border-radius: 999px;
+    background: var(--color-bg);
+    color: var(--color-muted);
+    @apply inline-flex items-center justify-center px-2 py-0.5 text-[11px] font-semibold;
+  }
+
+  .pw-badge--danger {
+    background: var(--color-danger-soft);
+    color: var(--color-danger);
+  }
+
+  /* Tabs */
+  .pw-tabs {
+    background: var(--color-bg);
+    border-radius: 12px;
+    @apply flex gap-1 p-1;
+  }
+
+  .pw-tab {
+    border-radius: 10px;
+    color: var(--color-muted);
+    @apply flex-1 cursor-pointer px-4 py-2 text-center text-sm font-semibold transition;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .pw-tab.is-active {
+    background: var(--color-surface);
+    color: var(--color-text);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Bottom bar (generic fixed bar) */
+  .pw-bottom-bar {
+    background: var(--color-surface);
+    box-shadow: var(--shadow-nav);
+    @apply fixed left-0 right-0 z-[99] px-5 py-4;
+    bottom: 0;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  }
+
+  /* Bottom sheet (generic modal-ish) */
+  .pw-overlay {
+    @apply fixed inset-0 z-[1999] transition;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .pw-sheet {
+    background: var(--color-surface);
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.2);
+    @apply fixed bottom-0 left-0 right-0 z-[2000] max-h-[90vh] overflow-y-auto;
+  }
+
+  .pw-sheet-handle {
+    background: var(--color-soft);
+    border-radius: 2px;
+    @apply mx-auto my-3 h-1 w-10;
+  }
+
+  .pw-sheet-head {
+    @apply border-b px-6 pb-5;
+    border-color: var(--color-bg);
+  }
+
+  .pw-sheet-title {
+    @apply text-lg font-bold;
+    color: var(--color-text);
+  }
+
+  .pw-sheet-body {
     @apply p-6;
   }
 
-  .ds-card--glow {
-    box-shadow: var(--shadow-soft), var(--shadow-glow-brand);
+  .pw-sheet-actions {
+    @apply flex gap-3 border-t px-6 pb-6 pt-4;
+    border-color: var(--color-bg);
   }
 
-  /* Typography */
-  .ds-h1 {
-    @apply text-4xl font-semibold tracking-tight sm:text-5xl;
+  /* Motion */
+  @keyframes pw-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-
-  .ds-h2 {
-    @apply text-2xl font-semibold tracking-tight sm:text-3xl;
+  .pw-appear {
+    animation: pw-fade-up 0.3s ease-out;
   }
-
-  .ds-body {
-    color: var(--color-text-muted);
-    @apply text-base leading-relaxed;
-  }
-
-  .ds-pill {
-    background: color-mix(in oklab, white 5%, #050011);
-    border-radius: 999px;
-    @apply px-4 py-2 text-sm font-medium;
-  }
-
-  .ds-btn {
-    border-radius: 999px;
-    @apply inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold transition;
-  }
-
-  .ds-btn--primary {
-    background: var(--color-brand);
-    color: white;
-    box-shadow: var(--shadow-glow-brand);
-  }
-
-  .ds-btn--primary:hover {
-    background: color-mix(in oklab, var(--color-brand) 85%, white);
-  }
-
-  .ds-btn--ghost {
-    background: transparent;
-    border: 1px solid var(--color-border);
-    color: white;
-  }
-
-  .ds-btn--ghost:hover {
-    background: color-mix(in oklab, white 6%, #050011);
-  }
-
-  .ds-ring:focus-visible {
-    outline: none;
-    box-shadow:
-      0 0 0 2px var(--color-bg),
-      0 0 0 4px color-mix(in oklab, var(--color-brand) 70%, white);
-  }
-}
-
-body {
-  font-family: var(--font-sans);
-  color: var(--color-text);
-}
-
-/* Optional: background glow similar to the mock */
-.bg-radial-glow {
-  background:
-    radial-gradient(
-      900px 500px at 70% 30%,
-      color-mix(in oklab, var(--color-brand) 25%, transparent),
-      transparent 60%
-    ),
-    radial-gradient(
-      900px 500px at 35% 70%,
-      color-mix(in oklab, var(--color-accent) 18%, transparent),
-      transparent 60%
-    ),
-    var(--color-bg);
 }

@@ -1,11 +1,16 @@
 "use client";
 
+import PaymentDue from "@/features/dashboard/component/PaymentDue";
+import ThisMonth from "@/features/dashboard/component/ThisMonth";
+import Wallet from "@/features/dashboard/component/Wallet";
+import { useDate } from "@/features/date/hook/useDate";
+import { formatNumberFa } from "@/features/utils/numbers";
 import { apiRouterTypeAuthenticationTelegramLogin } from "@/lib/api";
 import { useEffect } from "react";
-import Header from "./_components/Header";
-import Wallet from "./_components/Wallet";
 
 export default function Home() {
+  const { today } = useDate();
+
   useEffect(() => {
     let cancelled = false;
 
@@ -53,9 +58,22 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-b from-0% from-brand via-30% via-zinc-300 to-100% to-white w-screen h-screen ds-container">
-      <Header />
-      <Wallet />
+    <div className="pw-container py-5">
+      <div className="pw-card | text-center mb-5">
+        <p>📅</p>
+        <h2 className="text-base text-text font-medium">{today}</h2>
+      </div>
+      <Wallet type="expense" />
+      <Wallet type="income" />
+      <div className="pw-card | bg-primary text-center py-6">
+        <h1 className="pw-title | mb-1">💰</h1>
+        <h3 className="pw-label | text-surface mb-2">مانده حساب</h3>
+        <h1 className={`pw-title | text-surface text-[32px]`}>
+          {formatNumberFa(15000000)} تومان
+        </h1>
+      </div>
+      <PaymentDue />
+      <ThisMonth />
     </div>
   );
 }
