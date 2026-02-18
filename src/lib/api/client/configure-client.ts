@@ -3,7 +3,7 @@ import { axiosInstance } from "./axios-instance";
 
 export function configureApiClient() {
   client.setConfig({
-    baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+    baseURL: "https://paywise-api.dipper.ir",
     axios: axiosInstance,
   });
 }

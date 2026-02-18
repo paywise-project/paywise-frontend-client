@@ -1,12 +1,15 @@
 import type { NextConfig } from "next";
 
-const target =
-  process.env.NODE_ENV === "development"
-    ? "https://pwtest.mhossein.ir"
-    : "https://pwtestt.mhossein.ir";
-
 const nextConfig: NextConfig = {
   /* config options here */
+  async rewrites() {
+    return [
+      {
+        source: "/api/v1/:path*",
+        destination: `https://paywise-api.dipper.ir/api/v1/:path*`,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
