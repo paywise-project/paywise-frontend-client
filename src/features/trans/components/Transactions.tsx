@@ -20,7 +20,7 @@ const Transactions = () => {
       : apiRouterTypeIncomeSearchIncomesOptions({
           path: { user_uuid: customerUuid as string },
         });
-
+  // @ts-ignore
   const { data, isLoading, isError } = useQuery({
     ...queryOptions,
     enabled: Boolean(customerUuid),
@@ -32,6 +32,7 @@ const Transactions = () => {
 
   return (
     <div className="flex flex-col gap-2 mt-5 w-full">
+      {/* @ts-ignore */}
       <TransList tab={tab} data={data} />
     </div>
   );

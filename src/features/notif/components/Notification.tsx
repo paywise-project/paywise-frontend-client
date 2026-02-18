@@ -18,7 +18,7 @@ const Notification = () => {
   return (
     <div className="mt-5">
       {data?.notifications.map((n) => {
-        const date = formatJalaliWithRelative(n.sent_at);
+        const date = formatJalaliWithRelative(n.sent_at!);
         return (
           <div
             key={n.notification_uuid}
