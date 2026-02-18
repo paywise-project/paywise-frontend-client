@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
 import Header from "@/features/header/components/Header";
+import Footer from "@/features/footer/components/Footer";
+import ReduxProvider from "@/features/shared/redux/Provider";
+import { QueryProviders } from "@/features/shared/ui/QueryProvider";
+import Panel from "@/features/panel/components/Panel";
 
 const vazirmatn = Vazirmatn({
   variable: "--font-vazirmatn",
@@ -21,8 +25,14 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body className={`${vazirmatn.variable} antialiased bg-bg`}>
-        <Header />
-        {children}
+        <QueryProviders>
+          <ReduxProvider>
+            <Header />
+            <Panel />
+            {children}
+            <Footer />
+          </ReduxProvider>
+        </QueryProviders>
       </body>
     </html>
   );

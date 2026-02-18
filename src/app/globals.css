@@ -27,6 +27,8 @@
   --color-soft: #e8ecef; /* pressed/soft borders */
   --color-danger: #ff6b6b; /* error/badge */
   --color-danger-soft: #ffe8e8; /* danger bg */
+  --color-warning: #ff9800;
+  --color-warning-soft: #fff3e0;
   --color-soft-brown: rgb(255, 243, 224);
 
   /* Shadows */
@@ -91,6 +93,12 @@
     background: var(--color-surface);
     box-shadow: var(--shadow-header);
     @apply sticky top-0 z-50 flex items-center justify-between px-5 py-4;
+  }
+
+  .pw-footer {
+    background: var(--color-surface);
+    box-shadow: var(--shadow-header);
+    @apply absolute bottom-0 z-50 flex items-center justify-between px-5 py-4;
   }
 
   .pw-title {

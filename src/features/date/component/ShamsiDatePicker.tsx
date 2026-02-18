@@ -215,33 +215,31 @@ export default function ShamsiDatePicker({
               }}
               className={[
                 "rounded-xl border text-sm transition",
-                "gap-1 rounded-2xl",
-                isSelected
-                  ? "border-slate-900 bg-slate-900 text-white"
-                  : "border-transparent hover:bg-slate-100 text-slate-900",
+                "gap-1 rounded-2xl border-none hover:bg-slate-100",
+
                 isToday && !isSelected
                   ? "bg-primary text-surface rounded-lg"
                   : "",
               ].join(" ")}
             >
-              <span className="leading-none w-full h-[50px]">
+              <span className="leading-none w-full h-[50px] flex flex-col items-center justify-center">
                 {toFa(cell.jd)}
+                {dot !== undefined && (
+                  <span
+                    style={{
+                      height: 6,
+                      width: 6,
+                      backgroundColor:
+                        dot === "red"
+                          ? "#ff6b6b"
+                          : dot === "green"
+                            ? "#15967d"
+                            : "bg-transparent",
+                      borderRadius: 9999,
+                    }}
+                  />
+                )}
               </span>
-              {dot !== undefined && (
-                <span
-                  style={{
-                    height: 6,
-                    width: 6,
-                    backgroundColor:
-                      dot === "red"
-                        ? "#ff6b6b"
-                        : dot === "green"
-                          ? "#15967d"
-                          : "bg-transparent",
-                    borderRadius: 9999,
-                  }}
-                />
-              )}
             </button>
           );
         })}

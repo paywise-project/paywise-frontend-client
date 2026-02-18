@@ -2,7 +2,7 @@
 
 import type { Client, Options as Options2, TDataShape } from './client';
 import { client } from './client.gen';
-import type { ApiRouterTypeAdminAuthLoginData, ApiRouterTypeAdminAuthLoginErrors, ApiRouterTypeAdminAuthLoginResponses, ApiRouterTypeAdminAuthRefreshTokenData, ApiRouterTypeAdminAuthRefreshTokenErrors, ApiRouterTypeAdminAuthRefreshTokenResponses, ApiRouterTypeAdminCreateAppConfigData, ApiRouterTypeAdminCreateAppConfigErrors, ApiRouterTypeAdminCreateAppConfigResponses, ApiRouterTypeAdminCreateUserData, ApiRouterTypeAdminCreateUserErrors, ApiRouterTypeAdminCreateUserResponses, ApiRouterTypeAdminDeleteUserData, ApiRouterTypeAdminDeleteUserErrors, ApiRouterTypeAdminDeleteUserResponses, ApiRouterTypeAdminGetStartupConfigData, ApiRouterTypeAdminGetStartupConfigErrors, ApiRouterTypeAdminGetStartupConfigResponses, ApiRouterTypeAdminSearchAppConfigsData, ApiRouterTypeAdminSearchAppConfigsErrors, ApiRouterTypeAdminSearchAppConfigsResponses, ApiRouterTypeAdminSearchUsersData, ApiRouterTypeAdminSearchUsersErrors, ApiRouterTypeAdminSearchUsersResponses, ApiRouterTypeAdminUpdateAppConfigData, ApiRouterTypeAdminUpdateAppConfigErrors, ApiRouterTypeAdminUpdateAppConfigResponses, ApiRouterTypeAuthenticationCreateTotpData, ApiRouterTypeAuthenticationCreateTotpErrors, ApiRouterTypeAuthenticationCreateTotpResponses, ApiRouterTypeAuthenticationRefreshTokenData, ApiRouterTypeAuthenticationRefreshTokenErrors, ApiRouterTypeAuthenticationRefreshTokenResponses, ApiRouterTypeAuthenticationTelegramLoginData, ApiRouterTypeAuthenticationTelegramLoginErrors, ApiRouterTypeAuthenticationTelegramLoginResponses, ApiRouterTypeAuthenticationVerifyTotpData, ApiRouterTypeAuthenticationVerifyTotpErrors, ApiRouterTypeAuthenticationVerifyTotpResponses, ApiRouterTypeBalanceGetBalanceData, ApiRouterTypeBalanceGetBalanceErrors, ApiRouterTypeBalanceGetBalanceResponses, ApiRouterTypeExpenseCreateExpenseData, ApiRouterTypeExpenseCreateExpenseErrors, ApiRouterTypeExpenseCreateExpenseResponses, ApiRouterTypeExpenseDeleteExpenseData, ApiRouterTypeExpenseDeleteExpenseErrors, ApiRouterTypeExpenseDeleteExpenseResponses, ApiRouterTypeExpenseGetExpenseData, ApiRouterTypeExpenseGetExpenseErrors, ApiRouterTypeExpenseGetExpenseResponses, ApiRouterTypeExpenseGetTotalExpenseData, ApiRouterTypeExpenseGetTotalExpenseErrors, ApiRouterTypeExpenseGetTotalExpenseResponses, ApiRouterTypeExpenseSearchExpensesData, ApiRouterTypeExpenseSearchExpensesErrors, ApiRouterTypeExpenseSearchExpensesResponses, ApiRouterTypeExpenseUpdateExpenseData, ApiRouterTypeExpenseUpdateExpenseErrors, ApiRouterTypeExpenseUpdateExpenseResponses, ApiRouterTypeFileCreateFileData, ApiRouterTypeFileCreateFileErrors, ApiRouterTypeFileCreateFileResponses, ApiRouterTypeFileDeleteFileData, ApiRouterTypeFileDeleteFileErrors, ApiRouterTypeFileDeleteFileResponses, ApiRouterTypeFileGetFileData, ApiRouterTypeFileGetFileErrors, ApiRouterTypeFileGetFileResponses, ApiRouterTypeFileSearchFilesData, ApiRouterTypeFileSearchFilesErrors, ApiRouterTypeFileSearchFilesResponses, ApiRouterTypeFileUpdateFileData, ApiRouterTypeFileUpdateFileErrors, ApiRouterTypeFileUpdateFileResponses, ApiRouterTypeIncomeCreateIncomeData, ApiRouterTypeIncomeCreateIncomeErrors, ApiRouterTypeIncomeCreateIncomeResponses, ApiRouterTypeIncomeDeleteIncomeData, ApiRouterTypeIncomeDeleteIncomeErrors, ApiRouterTypeIncomeDeleteIncomeResponses, ApiRouterTypeIncomeGetIncomeData, ApiRouterTypeIncomeGetIncomeErrors, ApiRouterTypeIncomeGetIncomeResponses, ApiRouterTypeIncomeGetTotalIncomeData, ApiRouterTypeIncomeGetTotalIncomeErrors, ApiRouterTypeIncomeGetTotalIncomeResponses, ApiRouterTypeIncomeSearchIncomesData, ApiRouterTypeIncomeSearchIncomesErrors, ApiRouterTypeIncomeSearchIncomesResponses, ApiRouterTypeIncomeUpdateIncomeData, ApiRouterTypeIncomeUpdateIncomeErrors, ApiRouterTypeIncomeUpdateIncomeResponses, ApiRouterTypeNotificationCreateNotificationData, ApiRouterTypeNotificationCreateNotificationErrors, ApiRouterTypeNotificationCreateNotificationResponses, ApiRouterTypeNotificationDeleteNotificationData, ApiRouterTypeNotificationDeleteNotificationErrors, ApiRouterTypeNotificationDeleteNotificationResponses, ApiRouterTypeNotificationGetNotificationData, ApiRouterTypeNotificationGetNotificationErrors, ApiRouterTypeNotificationGetNotificationResponses, ApiRouterTypeNotificationSearchNotificationsData, ApiRouterTypeNotificationSearchNotificationsErrors, ApiRouterTypeNotificationSearchNotificationsResponses, ApiRouterTypeNotificationUpdateNotificationData, ApiRouterTypeNotificationUpdateNotificationErrors, ApiRouterTypeNotificationUpdateNotificationResponses, ApiRouterTypeReferralCreateReferralData, ApiRouterTypeReferralCreateReferralErrors, ApiRouterTypeReferralCreateReferralResponses, ApiRouterTypeReferralDeleteReferralData, ApiRouterTypeReferralDeleteReferralErrors, ApiRouterTypeReferralDeleteReferralResponses, ApiRouterTypeReferralGetReferralData, ApiRouterTypeReferralGetReferralErrors, ApiRouterTypeReferralGetReferralResponses, ApiRouterTypeReferralSearchReferralsData, ApiRouterTypeReferralSearchReferralsErrors, ApiRouterTypeReferralSearchReferralsResponses, ApiRouterTypeReferralUpdateReferralData, ApiRouterTypeReferralUpdateReferralErrors, ApiRouterTypeReferralUpdateReferralResponses, ApiRouterTypeUserGetUserData, ApiRouterTypeUserGetUserErrors, ApiRouterTypeUserGetUserResponses, ApiRouterTypeUserUpdateUserData, ApiRouterTypeUserUpdateUserErrors, ApiRouterTypeUserUpdateUserResponses } from './types.gen';
+import type { ApiRouterTypeAdminAuthLoginData, ApiRouterTypeAdminAuthLoginErrors, ApiRouterTypeAdminAuthLoginResponses, ApiRouterTypeAdminAuthRefreshTokenData, ApiRouterTypeAdminAuthRefreshTokenErrors, ApiRouterTypeAdminAuthRefreshTokenResponses, ApiRouterTypeAdminCreateAppConfigData, ApiRouterTypeAdminCreateAppConfigErrors, ApiRouterTypeAdminCreateAppConfigResponses, ApiRouterTypeAdminCreateUserData, ApiRouterTypeAdminCreateUserErrors, ApiRouterTypeAdminCreateUserResponses, ApiRouterTypeAdminDeleteUserData, ApiRouterTypeAdminDeleteUserErrors, ApiRouterTypeAdminDeleteUserResponses, ApiRouterTypeAdminGetStartupConfigData, ApiRouterTypeAdminGetStartupConfigErrors, ApiRouterTypeAdminGetStartupConfigResponses, ApiRouterTypeAdminSearchAppConfigsData, ApiRouterTypeAdminSearchAppConfigsErrors, ApiRouterTypeAdminSearchAppConfigsResponses, ApiRouterTypeAdminSearchUsersData, ApiRouterTypeAdminSearchUsersErrors, ApiRouterTypeAdminSearchUsersResponses, ApiRouterTypeAdminUpdateAppConfigData, ApiRouterTypeAdminUpdateAppConfigErrors, ApiRouterTypeAdminUpdateAppConfigResponses, ApiRouterTypeAuthenticationCreateTotpData, ApiRouterTypeAuthenticationCreateTotpErrors, ApiRouterTypeAuthenticationCreateTotpResponses, ApiRouterTypeAuthenticationRefreshTokenData, ApiRouterTypeAuthenticationRefreshTokenErrors, ApiRouterTypeAuthenticationRefreshTokenResponses, ApiRouterTypeAuthenticationTelegramLoginData, ApiRouterTypeAuthenticationTelegramLoginErrors, ApiRouterTypeAuthenticationTelegramLoginResponses, ApiRouterTypeAuthenticationVerifyTotpData, ApiRouterTypeAuthenticationVerifyTotpErrors, ApiRouterTypeAuthenticationVerifyTotpResponses, ApiRouterTypeBalanceGetBalanceData, ApiRouterTypeBalanceGetBalanceErrors, ApiRouterTypeBalanceGetBalanceResponses, ApiRouterTypeExpenseCreateExpenseData, ApiRouterTypeExpenseCreateExpenseErrors, ApiRouterTypeExpenseCreateExpenseResponses, ApiRouterTypeExpenseDeleteExpenseData, ApiRouterTypeExpenseDeleteExpenseErrors, ApiRouterTypeExpenseDeleteExpenseResponses, ApiRouterTypeExpenseGetExpenseData, ApiRouterTypeExpenseGetExpenseErrors, ApiRouterTypeExpenseGetExpenseResponses, ApiRouterTypeExpenseGetTotalExpenseData, ApiRouterTypeExpenseGetTotalExpenseErrors, ApiRouterTypeExpenseGetTotalExpenseResponses, ApiRouterTypeExpenseSearchExpensesData, ApiRouterTypeExpenseSearchExpensesErrors, ApiRouterTypeExpenseSearchExpensesResponses, ApiRouterTypeExpenseUpdateExpenseData, ApiRouterTypeExpenseUpdateExpenseErrors, ApiRouterTypeExpenseUpdateExpenseResponses, ApiRouterTypeFileCreateFileData, ApiRouterTypeFileCreateFileErrors, ApiRouterTypeFileCreateFileResponses, ApiRouterTypeFileDeleteFileData, ApiRouterTypeFileDeleteFileErrors, ApiRouterTypeFileDeleteFileResponses, ApiRouterTypeFileGetFileData, ApiRouterTypeFileGetFileErrors, ApiRouterTypeFileGetFileResponses, ApiRouterTypeFileSearchFilesData, ApiRouterTypeFileSearchFilesErrors, ApiRouterTypeFileSearchFilesResponses, ApiRouterTypeFileUpdateFileData, ApiRouterTypeFileUpdateFileErrors, ApiRouterTypeFileUpdateFileResponses, ApiRouterTypeIncomeCreateIncomeData, ApiRouterTypeIncomeCreateIncomeErrors, ApiRouterTypeIncomeCreateIncomeResponses, ApiRouterTypeIncomeDeleteIncomeData, ApiRouterTypeIncomeDeleteIncomeErrors, ApiRouterTypeIncomeDeleteIncomeResponses, ApiRouterTypeIncomeGetIncomeData, ApiRouterTypeIncomeGetIncomeErrors, ApiRouterTypeIncomeGetIncomeResponses, ApiRouterTypeIncomeGetTotalIncomeData, ApiRouterTypeIncomeGetTotalIncomeErrors, ApiRouterTypeIncomeGetTotalIncomeResponses, ApiRouterTypeIncomeSearchIncomesData, ApiRouterTypeIncomeSearchIncomesErrors, ApiRouterTypeIncomeSearchIncomesResponses, ApiRouterTypeIncomeUpdateIncomeData, ApiRouterTypeIncomeUpdateIncomeErrors, ApiRouterTypeIncomeUpdateIncomeResponses, ApiRouterTypeNotificationCreateNotificationData, ApiRouterTypeNotificationCreateNotificationErrors, ApiRouterTypeNotificationCreateNotificationResponses, ApiRouterTypeNotificationDeleteNotificationData, ApiRouterTypeNotificationDeleteNotificationErrors, ApiRouterTypeNotificationDeleteNotificationResponses, ApiRouterTypeNotificationGetNotificationData, ApiRouterTypeNotificationGetNotificationErrors, ApiRouterTypeNotificationGetNotificationResponses, ApiRouterTypeNotificationSearchNotificationsData, ApiRouterTypeNotificationSearchNotificationsErrors, ApiRouterTypeNotificationSearchNotificationsResponses, ApiRouterTypeNotificationUpdateNotificationData, ApiRouterTypeNotificationUpdateNotificationErrors, ApiRouterTypeNotificationUpdateNotificationResponses, ApiRouterTypeNotificationUpdateNotificationStatusData, ApiRouterTypeNotificationUpdateNotificationStatusErrors, ApiRouterTypeNotificationUpdateNotificationStatusResponses, ApiRouterTypeReferralCreateReferralData, ApiRouterTypeReferralCreateReferralErrors, ApiRouterTypeReferralCreateReferralResponses, ApiRouterTypeReferralDeleteReferralData, ApiRouterTypeReferralDeleteReferralErrors, ApiRouterTypeReferralDeleteReferralResponses, ApiRouterTypeReferralGetReferralData, ApiRouterTypeReferralGetReferralErrors, ApiRouterTypeReferralGetReferralResponses, ApiRouterTypeReferralSearchReferralsData, ApiRouterTypeReferralSearchReferralsErrors, ApiRouterTypeReferralSearchReferralsResponses, ApiRouterTypeReferralUpdateReferralData, ApiRouterTypeReferralUpdateReferralErrors, ApiRouterTypeReferralUpdateReferralResponses, ApiRouterTypeUserGetUserData, ApiRouterTypeUserGetUserErrors, ApiRouterTypeUserGetUserResponses, ApiRouterTypeUserUpdateUserData, ApiRouterTypeUserUpdateUserErrors, ApiRouterTypeUserUpdateUserResponses } from './types.gen';
 
 export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends boolean = boolean> = Options2<TData, ThrowOnError> & {
     /**
@@ -22,6 +22,7 @@ export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends 
  * Create Totp
  */
 export const apiRouterTypeAuthenticationCreateTotp = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeAuthenticationCreateTotpData, ThrowOnError>) => (options.client ?? client).post<ApiRouterTypeAuthenticationCreateTotpResponses, ApiRouterTypeAuthenticationCreateTotpErrors, ThrowOnError>({
+    responseType: 'json',
     url: '/api/v1/auth/create-totp',
     ...options,
     headers: {
@@ -34,6 +35,7 @@ export const apiRouterTypeAuthenticationCreateTotp = <ThrowOnError extends boole
  * Verify Totp
  */
 export const apiRouterTypeAuthenticationVerifyTotp = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeAuthenticationVerifyTotpData, ThrowOnError>) => (options.client ?? client).post<ApiRouterTypeAuthenticationVerifyTotpResponses, ApiRouterTypeAuthenticationVerifyTotpErrors, ThrowOnError>({
+    responseType: 'json',
     url: '/api/v1/auth/verify-totp',
     ...options,
     headers: {
@@ -46,6 +48,7 @@ export const apiRouterTypeAuthenticationVerifyTotp = <ThrowOnError extends boole
  * Refresh Token
  */
 export const apiRouterTypeAuthenticationRefreshToken = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeAuthenticationRefreshTokenData, ThrowOnError>) => (options.client ?? client).post<ApiRouterTypeAuthenticationRefreshTokenResponses, ApiRouterTypeAuthenticationRefreshTokenErrors, ThrowOnError>({
+    responseType: 'json',
     url: '/api/v1/auth/refresh-token',
     ...options,
     headers: {
@@ -58,6 +61,7 @@ export const apiRouterTypeAuthenticationRefreshToken = <ThrowOnError extends boo
  * Telegram Login
  */
 export const apiRouterTypeAuthenticationTelegramLogin = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeAuthenticationTelegramLoginData, ThrowOnError>) => (options.client ?? client).post<ApiRouterTypeAuthenticationTelegramLoginResponses, ApiRouterTypeAuthenticationTelegramLoginErrors, ThrowOnError>({
+    responseType: 'json',
     url: '/api/v1/auth/telegram-login',
     ...options,
     headers: {
@@ -70,6 +74,7 @@ export const apiRouterTypeAuthenticationTelegramLogin = <ThrowOnError extends bo
  * Get User
  */
 export const apiRouterTypeUserGetUser = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeUserGetUserData, ThrowOnError>) => (options.client ?? client).get<ApiRouterTypeUserGetUserResponses, ApiRouterTypeUserGetUserErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}',
     ...options
@@ -79,6 +84,7 @@ export const apiRouterTypeUserGetUser = <ThrowOnError extends boolean = false>(o
  * Update User
  */
 export const apiRouterTypeUserUpdateUser = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeUserUpdateUserData, ThrowOnError>) => (options.client ?? client).put<ApiRouterTypeUserUpdateUserResponses, ApiRouterTypeUserUpdateUserErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}',
     ...options,
@@ -92,6 +98,7 @@ export const apiRouterTypeUserUpdateUser = <ThrowOnError extends boolean = false
  * Search Expenses
  */
 export const apiRouterTypeExpenseSearchExpenses = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeExpenseSearchExpensesData, ThrowOnError>) => (options.client ?? client).get<ApiRouterTypeExpenseSearchExpensesResponses, ApiRouterTypeExpenseSearchExpensesErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/expenses',
     ...options
@@ -101,6 +108,7 @@ export const apiRouterTypeExpenseSearchExpenses = <ThrowOnError extends boolean 
  * Create Expense
  */
 export const apiRouterTypeExpenseCreateExpense = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeExpenseCreateExpenseData, ThrowOnError>) => (options.client ?? client).post<ApiRouterTypeExpenseCreateExpenseResponses, ApiRouterTypeExpenseCreateExpenseErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/expenses',
     ...options,
@@ -114,6 +122,7 @@ export const apiRouterTypeExpenseCreateExpense = <ThrowOnError extends boolean =
  * Delete Expense
  */
 export const apiRouterTypeExpenseDeleteExpense = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeExpenseDeleteExpenseData, ThrowOnError>) => (options.client ?? client).delete<ApiRouterTypeExpenseDeleteExpenseResponses, ApiRouterTypeExpenseDeleteExpenseErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/expenses/{expense_uuid}',
     ...options
@@ -123,6 +132,7 @@ export const apiRouterTypeExpenseDeleteExpense = <ThrowOnError extends boolean =
  * Get Expense
  */
 export const apiRouterTypeExpenseGetExpense = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeExpenseGetExpenseData, ThrowOnError>) => (options.client ?? client).get<ApiRouterTypeExpenseGetExpenseResponses, ApiRouterTypeExpenseGetExpenseErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/expenses/{expense_uuid}',
     ...options
@@ -132,6 +142,7 @@ export const apiRouterTypeExpenseGetExpense = <ThrowOnError extends boolean = fa
  * Update Expense
  */
 export const apiRouterTypeExpenseUpdateExpense = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeExpenseUpdateExpenseData, ThrowOnError>) => (options.client ?? client).put<ApiRouterTypeExpenseUpdateExpenseResponses, ApiRouterTypeExpenseUpdateExpenseErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/expenses/{expense_uuid}',
     ...options,
@@ -145,6 +156,7 @@ export const apiRouterTypeExpenseUpdateExpense = <ThrowOnError extends boolean =
  * Get Total Expense
  */
 export const apiRouterTypeExpenseGetTotalExpense = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeExpenseGetTotalExpenseData, ThrowOnError>) => (options.client ?? client).get<ApiRouterTypeExpenseGetTotalExpenseResponses, ApiRouterTypeExpenseGetTotalExpenseErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/total-expense',
     ...options
@@ -154,6 +166,7 @@ export const apiRouterTypeExpenseGetTotalExpense = <ThrowOnError extends boolean
  * Search Incomes
  */
 export const apiRouterTypeIncomeSearchIncomes = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeIncomeSearchIncomesData, ThrowOnError>) => (options.client ?? client).get<ApiRouterTypeIncomeSearchIncomesResponses, ApiRouterTypeIncomeSearchIncomesErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/incomes',
     ...options
@@ -163,6 +176,7 @@ export const apiRouterTypeIncomeSearchIncomes = <ThrowOnError extends boolean = 
  * Create Income
  */
 export const apiRouterTypeIncomeCreateIncome = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeIncomeCreateIncomeData, ThrowOnError>) => (options.client ?? client).post<ApiRouterTypeIncomeCreateIncomeResponses, ApiRouterTypeIncomeCreateIncomeErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/incomes',
     ...options,
@@ -176,6 +190,7 @@ export const apiRouterTypeIncomeCreateIncome = <ThrowOnError extends boolean = f
  * Delete Income
  */
 export const apiRouterTypeIncomeDeleteIncome = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeIncomeDeleteIncomeData, ThrowOnError>) => (options.client ?? client).delete<ApiRouterTypeIncomeDeleteIncomeResponses, ApiRouterTypeIncomeDeleteIncomeErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/incomes/{income_uuid}',
     ...options
@@ -185,6 +200,7 @@ export const apiRouterTypeIncomeDeleteIncome = <ThrowOnError extends boolean = f
  * Get Income
  */
 export const apiRouterTypeIncomeGetIncome = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeIncomeGetIncomeData, ThrowOnError>) => (options.client ?? client).get<ApiRouterTypeIncomeGetIncomeResponses, ApiRouterTypeIncomeGetIncomeErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/incomes/{income_uuid}',
     ...options
@@ -194,6 +210,7 @@ export const apiRouterTypeIncomeGetIncome = <ThrowOnError extends boolean = fals
  * Update Income
  */
 export const apiRouterTypeIncomeUpdateIncome = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeIncomeUpdateIncomeData, ThrowOnError>) => (options.client ?? client).put<ApiRouterTypeIncomeUpdateIncomeResponses, ApiRouterTypeIncomeUpdateIncomeErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/incomes/{income_uuid}',
     ...options,
@@ -207,6 +224,7 @@ export const apiRouterTypeIncomeUpdateIncome = <ThrowOnError extends boolean = f
  * Get Total Income
  */
 export const apiRouterTypeIncomeGetTotalIncome = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeIncomeGetTotalIncomeData, ThrowOnError>) => (options.client ?? client).get<ApiRouterTypeIncomeGetTotalIncomeResponses, ApiRouterTypeIncomeGetTotalIncomeErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/total-income',
     ...options
@@ -216,6 +234,7 @@ export const apiRouterTypeIncomeGetTotalIncome = <ThrowOnError extends boolean =
  * Get Balance
  */
 export const apiRouterTypeBalanceGetBalance = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeBalanceGetBalanceData, ThrowOnError>) => (options.client ?? client).get<ApiRouterTypeBalanceGetBalanceResponses, ApiRouterTypeBalanceGetBalanceErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/balance',
     ...options
@@ -225,6 +244,7 @@ export const apiRouterTypeBalanceGetBalance = <ThrowOnError extends boolean = fa
  * Search Notifications
  */
 export const apiRouterTypeNotificationSearchNotifications = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeNotificationSearchNotificationsData, ThrowOnError>) => (options.client ?? client).get<ApiRouterTypeNotificationSearchNotificationsResponses, ApiRouterTypeNotificationSearchNotificationsErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/notifications',
     ...options
@@ -234,6 +254,7 @@ export const apiRouterTypeNotificationSearchNotifications = <ThrowOnError extend
  * Create Notification
  */
 export const apiRouterTypeNotificationCreateNotification = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeNotificationCreateNotificationData, ThrowOnError>) => (options.client ?? client).post<ApiRouterTypeNotificationCreateNotificationResponses, ApiRouterTypeNotificationCreateNotificationErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/notifications',
     ...options,
@@ -247,6 +268,7 @@ export const apiRouterTypeNotificationCreateNotification = <ThrowOnError extends
  * Delete Notification
  */
 export const apiRouterTypeNotificationDeleteNotification = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeNotificationDeleteNotificationData, ThrowOnError>) => (options.client ?? client).delete<ApiRouterTypeNotificationDeleteNotificationResponses, ApiRouterTypeNotificationDeleteNotificationErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/notifications/{notification_uuid}',
     ...options
@@ -256,6 +278,7 @@ export const apiRouterTypeNotificationDeleteNotification = <ThrowOnError extends
  * Get Notification
  */
 export const apiRouterTypeNotificationGetNotification = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeNotificationGetNotificationData, ThrowOnError>) => (options.client ?? client).get<ApiRouterTypeNotificationGetNotificationResponses, ApiRouterTypeNotificationGetNotificationErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/notifications/{notification_uuid}',
     ...options
@@ -265,6 +288,7 @@ export const apiRouterTypeNotificationGetNotification = <ThrowOnError extends bo
  * Update Notification
  */
 export const apiRouterTypeNotificationUpdateNotification = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeNotificationUpdateNotificationData, ThrowOnError>) => (options.client ?? client).put<ApiRouterTypeNotificationUpdateNotificationResponses, ApiRouterTypeNotificationUpdateNotificationErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/notifications/{notification_uuid}',
     ...options,
@@ -275,19 +299,42 @@ export const apiRouterTypeNotificationUpdateNotification = <ThrowOnError extends
 });
 
 /**
+ * Update Notification Status
+ */
+export const apiRouterTypeNotificationUpdateNotificationStatus = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeNotificationUpdateNotificationStatusData, ThrowOnError>) => (options.client ?? client).patch<ApiRouterTypeNotificationUpdateNotificationStatusResponses, ApiRouterTypeNotificationUpdateNotificationStatusErrors, ThrowOnError>({
+    responseType: 'json',
+    security: [{ scheme: 'bearer', type: 'http' }],
+    url: '/api/v1/users/{user_uuid}/notifications/{notification_uuid}/status',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
  * Get Startup Config
  */
-export const apiRouterTypeAdminGetStartupConfig = <ThrowOnError extends boolean = false>(options?: Options<ApiRouterTypeAdminGetStartupConfigData, ThrowOnError>) => (options?.client ?? client).get<ApiRouterTypeAdminGetStartupConfigResponses, ApiRouterTypeAdminGetStartupConfigErrors, ThrowOnError>({ url: '/api/v1/configs/startup', ...options });
+export const apiRouterTypeAdminGetStartupConfig = <ThrowOnError extends boolean = false>(options?: Options<ApiRouterTypeAdminGetStartupConfigData, ThrowOnError>) => (options?.client ?? client).get<ApiRouterTypeAdminGetStartupConfigResponses, ApiRouterTypeAdminGetStartupConfigErrors, ThrowOnError>({
+    responseType: 'json',
+    url: '/api/v1/configs/startup',
+    ...options
+});
 
 /**
  * Search Users
  */
-export const apiRouterTypeAdminSearchUsers = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeAdminSearchUsersData, ThrowOnError>) => (options.client ?? client).get<ApiRouterTypeAdminSearchUsersResponses, ApiRouterTypeAdminSearchUsersErrors, ThrowOnError>({ url: '/api/v1/configs/{user_uuid}/users', ...options });
+export const apiRouterTypeAdminSearchUsers = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeAdminSearchUsersData, ThrowOnError>) => (options.client ?? client).get<ApiRouterTypeAdminSearchUsersResponses, ApiRouterTypeAdminSearchUsersErrors, ThrowOnError>({
+    responseType: 'json',
+    url: '/api/v1/configs/{user_uuid}/users',
+    ...options
+});
 
 /**
  * Create User
  */
 export const apiRouterTypeAdminCreateUser = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeAdminCreateUserData, ThrowOnError>) => (options.client ?? client).post<ApiRouterTypeAdminCreateUserResponses, ApiRouterTypeAdminCreateUserErrors, ThrowOnError>({
+    responseType: 'json',
     url: '/api/v1/configs/{user_uuid}/users',
     ...options,
     headers: {
@@ -299,12 +346,17 @@ export const apiRouterTypeAdminCreateUser = <ThrowOnError extends boolean = fals
 /**
  * Delete User
  */
-export const apiRouterTypeAdminDeleteUser = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeAdminDeleteUserData, ThrowOnError>) => (options.client ?? client).delete<ApiRouterTypeAdminDeleteUserResponses, ApiRouterTypeAdminDeleteUserErrors, ThrowOnError>({ url: '/api/v1/configs/users/{user_uuid}', ...options });
+export const apiRouterTypeAdminDeleteUser = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeAdminDeleteUserData, ThrowOnError>) => (options.client ?? client).delete<ApiRouterTypeAdminDeleteUserResponses, ApiRouterTypeAdminDeleteUserErrors, ThrowOnError>({
+    responseType: 'json',
+    url: '/api/v1/configs/users/{user_uuid}',
+    ...options
+});
 
 /**
  * Search Referrals
  */
 export const apiRouterTypeReferralSearchReferrals = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeReferralSearchReferralsData, ThrowOnError>) => (options.client ?? client).get<ApiRouterTypeReferralSearchReferralsResponses, ApiRouterTypeReferralSearchReferralsErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/referrals',
     ...options
@@ -314,6 +366,7 @@ export const apiRouterTypeReferralSearchReferrals = <ThrowOnError extends boolea
  * Create Referral
  */
 export const apiRouterTypeReferralCreateReferral = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeReferralCreateReferralData, ThrowOnError>) => (options.client ?? client).post<ApiRouterTypeReferralCreateReferralResponses, ApiRouterTypeReferralCreateReferralErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/referrals',
     ...options,
@@ -327,6 +380,7 @@ export const apiRouterTypeReferralCreateReferral = <ThrowOnError extends boolean
  * Delete Referral
  */
 export const apiRouterTypeReferralDeleteReferral = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeReferralDeleteReferralData, ThrowOnError>) => (options.client ?? client).delete<ApiRouterTypeReferralDeleteReferralResponses, ApiRouterTypeReferralDeleteReferralErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/referrals/{referral_uuid}',
     ...options
@@ -336,6 +390,7 @@ export const apiRouterTypeReferralDeleteReferral = <ThrowOnError extends boolean
  * Get Referral
  */
 export const apiRouterTypeReferralGetReferral = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeReferralGetReferralData, ThrowOnError>) => (options.client ?? client).get<ApiRouterTypeReferralGetReferralResponses, ApiRouterTypeReferralGetReferralErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/referrals/{referral_uuid}',
     ...options
@@ -345,6 +400,7 @@ export const apiRouterTypeReferralGetReferral = <ThrowOnError extends boolean = 
  * Update Referral
  */
 export const apiRouterTypeReferralUpdateReferral = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeReferralUpdateReferralData, ThrowOnError>) => (options.client ?? client).put<ApiRouterTypeReferralUpdateReferralResponses, ApiRouterTypeReferralUpdateReferralErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/referrals/{referral_uuid}',
     ...options,
@@ -358,6 +414,7 @@ export const apiRouterTypeReferralUpdateReferral = <ThrowOnError extends boolean
  * Search Files
  */
 export const apiRouterTypeFileSearchFiles = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeFileSearchFilesData, ThrowOnError>) => (options.client ?? client).get<ApiRouterTypeFileSearchFilesResponses, ApiRouterTypeFileSearchFilesErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/files',
     ...options
@@ -367,6 +424,7 @@ export const apiRouterTypeFileSearchFiles = <ThrowOnError extends boolean = fals
  * Create File
  */
 export const apiRouterTypeFileCreateFile = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeFileCreateFileData, ThrowOnError>) => (options.client ?? client).post<ApiRouterTypeFileCreateFileResponses, ApiRouterTypeFileCreateFileErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/files',
     ...options,
@@ -380,6 +438,7 @@ export const apiRouterTypeFileCreateFile = <ThrowOnError extends boolean = false
  * Delete File
  */
 export const apiRouterTypeFileDeleteFile = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeFileDeleteFileData, ThrowOnError>) => (options.client ?? client).delete<ApiRouterTypeFileDeleteFileResponses, ApiRouterTypeFileDeleteFileErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/files/{file_uuid}',
     ...options
@@ -389,6 +448,7 @@ export const apiRouterTypeFileDeleteFile = <ThrowOnError extends boolean = false
  * Get File
  */
 export const apiRouterTypeFileGetFile = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeFileGetFileData, ThrowOnError>) => (options.client ?? client).get<ApiRouterTypeFileGetFileResponses, ApiRouterTypeFileGetFileErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/files/{file_uuid}',
     ...options
@@ -398,6 +458,7 @@ export const apiRouterTypeFileGetFile = <ThrowOnError extends boolean = false>(o
  * Update File
  */
 export const apiRouterTypeFileUpdateFile = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeFileUpdateFileData, ThrowOnError>) => (options.client ?? client).put<ApiRouterTypeFileUpdateFileResponses, ApiRouterTypeFileUpdateFileErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/users/{user_uuid}/files/{file_uuid}',
     ...options,
@@ -411,6 +472,7 @@ export const apiRouterTypeFileUpdateFile = <ThrowOnError extends boolean = false
  * Login
  */
 export const apiRouterTypeAdminAuthLogin = <ThrowOnError extends boolean = false>(options?: Options<ApiRouterTypeAdminAuthLoginData, ThrowOnError>) => (options?.client ?? client).post<ApiRouterTypeAdminAuthLoginResponses, ApiRouterTypeAdminAuthLoginErrors, ThrowOnError>({
+    responseType: 'json',
     url: '/api/v1/auth/admin/login',
     ...options,
     headers: {
@@ -423,6 +485,7 @@ export const apiRouterTypeAdminAuthLogin = <ThrowOnError extends boolean = false
  * Refresh Token
  */
 export const apiRouterTypeAdminAuthRefreshToken = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeAdminAuthRefreshTokenData, ThrowOnError>) => (options.client ?? client).post<ApiRouterTypeAdminAuthRefreshTokenResponses, ApiRouterTypeAdminAuthRefreshTokenErrors, ThrowOnError>({
+    responseType: 'json',
     url: '/api/v1/auth/admin/refresh-token',
     ...options,
     headers: {
@@ -435,6 +498,7 @@ export const apiRouterTypeAdminAuthRefreshToken = <ThrowOnError extends boolean 
  * Search App Configs
  */
 export const apiRouterTypeAdminSearchAppConfigs = <ThrowOnError extends boolean = false>(options?: Options<ApiRouterTypeAdminSearchAppConfigsData, ThrowOnError>) => (options?.client ?? client).get<ApiRouterTypeAdminSearchAppConfigsResponses, ApiRouterTypeAdminSearchAppConfigsErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/admin/app_configs',
     ...options
@@ -444,6 +508,7 @@ export const apiRouterTypeAdminSearchAppConfigs = <ThrowOnError extends boolean 
  * Create App Config
  */
 export const apiRouterTypeAdminCreateAppConfig = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeAdminCreateAppConfigData, ThrowOnError>) => (options.client ?? client).post<ApiRouterTypeAdminCreateAppConfigResponses, ApiRouterTypeAdminCreateAppConfigErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/admin/app_configs',
     ...options,
@@ -457,6 +522,7 @@ export const apiRouterTypeAdminCreateAppConfig = <ThrowOnError extends boolean =
  * Update App Config
  */
 export const apiRouterTypeAdminUpdateAppConfig = <ThrowOnError extends boolean = false>(options: Options<ApiRouterTypeAdminUpdateAppConfigData, ThrowOnError>) => (options.client ?? client).put<ApiRouterTypeAdminUpdateAppConfigResponses, ApiRouterTypeAdminUpdateAppConfigErrors, ThrowOnError>({
+    responseType: 'json',
     security: [{ scheme: 'bearer', type: 'http' }],
     url: '/api/v1/admin/app_configs/{app_config_uuid}',
     ...options,

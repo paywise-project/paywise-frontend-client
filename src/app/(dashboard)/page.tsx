@@ -4,61 +4,52 @@ import PaymentDue from "@/features/dashboard/component/PaymentDue";
 import ThisMonth from "@/features/dashboard/component/ThisMonth";
 import Wallet from "@/features/dashboard/component/Wallet";
 import { useDate } from "@/features/date/hook/useDate";
+import { setCredentials } from "@/features/shared/auth/slice/authSlice";
+import { useAppDispatch, useAppSelector } from "@/features/shared/redux/hooks";
 import { formatNumberFa } from "@/features/utils/numbers";
-import { apiRouterTypeAuthenticationTelegramLogin } from "@/lib/api";
+import { apiRouterTypeAuthenticationTelegramLoginMutation } from "@/lib/api/@tanstack/react-query.gen";
+import { useMutation } from "@tanstack/react-query";
 import { useEffect } from "react";
 
 export default function Home() {
   const { today } = useDate();
+  const dispatch = useAppDispatch();
+  const { isAuthenticated } = useAppSelector((s) => s.auth);
+
+  const loginMutation = useMutation({
+    ...apiRouterTypeAuthenticationTelegramLoginMutation(),
+    onSuccess: (data) => {
+      const { access_token, refresh_token, customer_uuid } = data;
+
+      dispatch(
+        setCredentials({
+          accessToken: access_token,
+          refreshToken: refresh_token,
+          customerUuid: customer_uuid,
+        }),
+      );
+    },
+    onError: (err) => {
+      console.error(err);
+    },
+    retry: false,
+  });
 
   useEffect(() => {
-    let cancelled = false;
+    if (isAuthenticated) return;
 
-    (async () => {
-      if (typeof window === "undefined") return;
-
-      const WebAppModule = await import("@twa-dev/sdk");
-      const WebApp = WebAppModule.default;
-
-      const user = WebApp?.initDataUnsafe?.user;
-      const telegramId = user?.id;
-
-      if (typeof telegramId !== "number") {
-        console.warn(
-          "No Telegram user id found. Are you running inside Telegram WebApp?",
-        );
-        return;
-      }
-
-      try {
-        const res = await apiRouterTypeAuthenticationTelegramLogin<true>({
-          body: {
-            telegram_id: telegramId,
-            first_name: user?.first_name ?? "",
-            last_name: user?.last_name ?? "",
-            telegram_username: user?.username ?? "",
-          },
-          throwOnError: true,
-        });
-
-        if (!res?.data || cancelled) return;
-
-        const { access_token, refresh_token, customer_uuid } = res.data;
-        localStorage.setItem("access_token", access_token);
-        localStorage.setItem("refresh_token", refresh_token);
-        localStorage.setItem("customer_uuid", customer_uuid);
-      } catch (error) {
-        console.error("Login failed:", error);
-      }
-    })();
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+    loginMutation.mutate({
+      body: {
+        telegram_id: 506909651,
+        first_name: "!",
+        last_name: "",
+        telegram_username: "idkwtfimdoing",
+      },
+    });
+  }, [isAuthenticated]);
 
   return (
-    <div className="pw-container py-5">
+    <div className="pw-container | py-5">
       <div className="pw-card | text-center mb-5">
         <p>📅</p>
         <h2 className="text-base text-text font-medium">{today}</h2>

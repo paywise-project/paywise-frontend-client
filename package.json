@@ -12,20 +12,25 @@
     "gen:api": "openapi-ts"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.11.2",
     "@tanstack/react-query": "^5.90.21",
     "@twa-dev/sdk": "^8.0.2",
     "@twa-dev/types": "^8.0.2",
+    "axios": "^1.13.5",
     "jalaali-js": "^1.2.8",
     "motion": "^12.34.0",
     "next": "^16.1.6",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "react-icons": "^5.5.0"
+    "react-icons": "^5.5.0",
+    "react-redux": "^9.2.0"
   },
   "devDependencies": {
+    "@hey-api/client-fetch": "^0.13.1",
     "@hey-api/openapi-ts": "^0.92.4",
     "@tailwindcss/postcss": "^4",
     "@tanstack/react-query-devtools": "^5.91.3",
+    "@types/jalaali-js": "^1.2.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

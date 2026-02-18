@@ -1,20 +1,20 @@
-import Image from "next/image";
+"use client";
+
+import { usePathname } from "next/navigation";
+import MainHead from "./MainHead";
+import NotifHead from "@/features/notif/components/NotifHead";
+import TransHead from "@/features/trans/components/TransHead";
+import SettingsHead from "@/features/settings/components/SettingsHead";
 
 const Header = () => {
+  const pathname = usePathname();
+
   return (
     <div className="pw-container pw-header | flex">
-      <div className="flex items-center gap-1">
-        <Image
-          src={"/pw-logo.avif"}
-          alt="Pay wise logo"
-          width={30}
-          height={30}
-          className="rounded-full"
-        />
-
-        <h1 className="pw-title">Paywise</h1>
-      </div>
-      <span className="pw-icon-btn pw-press">🔔</span>
+      {pathname === "/" && <MainHead />}
+      {pathname === "/transactions" && <TransHead />}
+      {pathname === "/notification" && <NotifHead />}
+      {pathname === "/settings" && <SettingsHead />}
     </div>
   );
 };
