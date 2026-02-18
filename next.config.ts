@@ -7,14 +7,6 @@ const target =
 
 const nextConfig: NextConfig = {
   /* config options here */
-  async rewrites() {
-    return [
-      {
-        source: "/api/v1/:path*",
-        destination: `${target}/api/v1/:path*`,
-      },
-    ];
-  },
 };
 
 export default nextConfig;
