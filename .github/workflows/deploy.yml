@@ -43,4 +43,4 @@ jobs:
             cd /var/www/paywise-frontend/app
             npm ci --omit=dev
             sudo -u deploy pm2 start ecosystem.config.js --update-env || sudo -u deploy pm2 reload ecosystem.config.js --update-env
-            pm2 save
+            sudo -u deploy pm2 save
