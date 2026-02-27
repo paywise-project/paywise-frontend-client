@@ -11,7 +11,7 @@
     "lint": "eslint",
     "gen:api": "openapi-ts",
     "type-check": "tsc --noEmit",
-    "prepare": "husky"
+    "prepare": "if [ \"$NODE_ENV\" != \"production\" ]; then husky; fi"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
