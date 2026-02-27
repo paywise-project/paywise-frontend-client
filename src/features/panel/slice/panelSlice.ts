@@ -2,10 +2,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type RoutePanelState = {
   isOpen: boolean;
+  panelState: string;
 };
 
 const initialState: RoutePanelState = {
   isOpen: false,
+  panelState: "",
 };
 
 const routePanelSlice = createSlice({
@@ -24,9 +26,12 @@ const routePanelSlice = createSlice({
     togglePanel(state) {
       state.isOpen = !state.isOpen;
     },
+    setPanelState(state, action: PayloadAction<string>) {
+      state.panelState = action.payload;
+    },
   },
 });
 
-export const { openPanel, closePanel, setOpen, togglePanel } =
+export const { openPanel, closePanel, setOpen, togglePanel, setPanelState } =
   routePanelSlice.actions;
 export default routePanelSlice.reducer;

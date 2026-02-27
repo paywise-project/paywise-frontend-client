@@ -1,23 +1,81 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { useAppSelector } from "@/features/shared/redux/hooks";
 import { formatJalaliWithRelative } from "@/features/utils/date";
-import { apiRouterTypeNotificationSearchNotificationsOptions } from "@/lib/api/@tanstack/react-query.gen";
-import { useQuery } from "@tanstack/react-query";
+import { apiRouterTypeNotificationSearchNotifications } from "@/lib/api";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { apiRouterTypeNotificationSearchNotificationsInfiniteQueryKey } from "@/lib/api/@tanstack/react-query.gen";
+
+const PAGE_SIZE = 10;
 
 const Notification = () => {
   const { isAuthenticated, customerUuid } = useAppSelector((s) => s.auth);
 
-  const { data, isLoading, isError } = useQuery({
-    ...apiRouterTypeNotificationSearchNotificationsOptions({
-      path: { user_uuid: customerUuid as string },
+  const loadMoreRef = useRef<HTMLDivElement | null>(null);
+
+  const {
+    data,
+    isLoading,
+    isError,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQuery({
+    queryKey: apiRouterTypeNotificationSearchNotificationsInfiniteQueryKey({
+      path: { user_uuid: customerUuid ?? "" },
     }),
-    enabled: isAuthenticated,
+    initialPageParam: 1,
+
+    enabled: isAuthenticated && !!customerUuid,
+
+    queryFn: async ({ pageParam, signal }) => {
+      const { data } = await apiRouterTypeNotificationSearchNotifications({
+        path: { user_uuid: customerUuid as string },
+        query: { page: pageParam, page_size: PAGE_SIZE },
+
+        throwOnError: true,
+        signal,
+      });
+
+      return data; // SearchNotificationOutputDtov1
+    },
+
+    getNextPageParam: (lastPage, allPages) => {
+      const loaded = allPages.reduce(
+        (sum, p) => sum + (p.notifications?.length ?? 0),
+        0,
+      );
+
+      if (loaded >= (lastPage.total ?? 0)) return undefined;
+
+      return allPages.length + 1; // pages start at 1
+    },
   });
+
+  const notifications = data?.pages.flatMap((p) => p.notifications ?? []) ?? [];
+
+  useEffect(() => {
+    const el = loadMoreRef.current;
+    if (!el) return;
+
+    const obs = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && hasNextPage && !isFetchingNextPage) {
+        fetchNextPage();
+      }
+    });
+
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [fetchNextPage, hasNextPage, isFetchingNextPage]);
+
+  // keep your existing behavior; you can render error UI if you want
+  if (isLoading) return <div className="mt-5" />;
+  if (isError) return <div className="mt-5" />;
 
   return (
     <div className="mt-5">
-      {data?.notifications.map((n) => {
+      {notifications.map((n) => {
         const date = formatJalaliWithRelative(n.sent_at!);
         return (
           <div
@@ -39,6 +97,14 @@ const Notification = () => {
           </div>
         );
       })}
+
+      {/* sentinel (bottom reach) */}
+      <div ref={loadMoreRef} />
+
+      {/* optional: loading state for next page */}
+      {isFetchingNextPage && (
+        <div className="mt-3 text-center text-xs text-muted-2">Loading...</div>
+      )}
     </div>
   );
 };

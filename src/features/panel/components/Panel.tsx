@@ -1,24 +1,14 @@
 "use client";
 
 import * as React from "react";
-import { usePathname } from "next/navigation";
-import { openPanel, closePanel } from "../slice/panelSlice";
+import { closePanel } from "../slice/panelSlice";
 import { useAppDispatch, useAppSelector } from "@/features/shared/redux/hooks";
 import SettingsPanel from "@/features/settings/components/SettingsPanel";
-
-function getContentForPath(pathname: string) {
-  if (pathname === "/") return { title: "Home", body: "Welcome back." };
-  if (pathname.startsWith("/dashboard"))
-    return { title: "Dashboard", body: "Here are your stats." };
-  if (pathname.startsWith("/settings"))
-    return { title: "Settings", body: "Update your preferences." };
-  return { title: "Page", body: `You are on ${pathname}` };
-}
+import NewFormPanel from "@/features/new-form/components/NewFormPanel";
 
 export default function RoutePanel() {
-  const pathname = usePathname();
   const dispatch = useAppDispatch();
-  const isOpen = useAppSelector((s) => s.panel.isOpen);
+  const { isOpen, panelState } = useAppSelector((s) => s.panel);
 
   const panelRef = React.useRef<HTMLDivElement>(null);
 
@@ -44,9 +34,11 @@ export default function RoutePanel() {
   return (
     <div
       className={[
-        "fixed flex flex-col justify-end left-0 bottom-0 z-50 bg-muted-2/40 h-screen w-full z-99999999",
-        "transition-transform duration-300 ease-out",
-        isOpen ? "translate-y-0" : "translate-y-full",
+        "fixed flex flex-col justify-end left-0 bottom-0 h-screen w-full z-99999999",
+        "transition duration-300 ease-out",
+        isOpen
+          ? "translate-y-0 bg-muted-2/40"
+          : "translate-y-full bg-transparent",
       ].join(" ")}
     >
       <div
@@ -58,7 +50,10 @@ export default function RoutePanel() {
           className="pw-sheet-handle"
           onClick={() => dispatch(closePanel())}
         ></div>
-        {pathname === "/settings" && <SettingsPanel />}
+        {panelState === "settings" && <SettingsPanel />}
+        {(panelState === "income" || panelState === "expense") && (
+          <NewFormPanel />
+        )}
       </div>
     </div>
   );

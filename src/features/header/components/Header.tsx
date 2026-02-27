@@ -5,6 +5,7 @@ import MainHead from "./MainHead";
 import NotifHead from "@/features/notif/components/NotifHead";
 import TransHead from "@/features/trans/components/TransHead";
 import SettingsHead from "@/features/settings/components/SettingsHead";
+import NewFormHead from "@/features/new-form/components/NewFormHead";
 
 const Header = () => {
   const pathname = usePathname();
@@ -15,6 +16,7 @@ const Header = () => {
       {pathname === "/transactions" && <TransHead />}
       {pathname === "/notification" && <NotifHead />}
       {pathname === "/settings" && <SettingsHead />}
+      {pathname === "/new-form" && <NewFormHead />}
     </div>
   );
 };

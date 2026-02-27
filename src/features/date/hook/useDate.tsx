@@ -18,7 +18,13 @@ export function useDate() {
     const month = parts.find((p) => p.type === "month")?.value;
     const year = parts.find((p) => p.type === "year")?.value;
 
-    return `${weekday}، ${day}، ${month}، ${year}`;
+    return {
+      full_date: `${weekday}، ${day}، ${month}، ${year}`,
+      day,
+      weekday,
+      month,
+      year,
+    };
   }, []);
 
   return { today };

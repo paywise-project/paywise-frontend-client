@@ -2,11 +2,11 @@
 
 import * as React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { configureApiClient } from "@/lib/api/client/configure-client";
+import { createClient } from "@/lib/api/client";
 
 export function QueryProviders({ children }: { children: React.ReactNode }) {
   React.useEffect(() => {
-    configureApiClient();
+    createClient({});
   }, []);
 
   const [queryClient] = React.useState(

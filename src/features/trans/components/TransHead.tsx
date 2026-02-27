@@ -19,8 +19,8 @@ const TransHead = () => {
       </div>
       <div className="pw-tabs mt-3 w-full">
         <div
-          className={`pw-tab ${activeTab === "expenses" ? "is-active" : ""}`}
-          onClick={() => handleClick("expenses")}
+          className={`pw-tab ${activeTab === "expense" ? "is-active" : ""}`}
+          onClick={() => handleClick("expense")}
         >
           هزینه‌ها
         </div>

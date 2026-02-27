@@ -2,23 +2,13 @@
 
 import ShamsiDatePicker from "@/features/date/component/ShamsiDatePicker";
 import SectionHeader from "@/features/shared/ui/SectionHeader";
-import React from "react";
+import { HiCalendar } from "react-icons/hi2";
 
 const ThisMonth = () => {
   return (
     <div className="mt-5">
-      <SectionHeader text="تقویم تیر ماه" emoji="📅" />
-      <ShamsiDatePicker
-        markedDays={{
-          3: "red",
-          7: "green",
-          12: "red",
-          18: "green",
-        }}
-        onChange={({ jy, jm, jd }) => {
-          console.log("Selected Jalali:", jy, jm, jd);
-        }}
-      />
+      <SectionHeader text="تقویم سال" Emoji={HiCalendar} />
+      <ShamsiDatePicker popover />
     </div>
   );
 };

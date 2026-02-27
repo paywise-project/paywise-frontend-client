@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { HiOutlineBell } from "react-icons/hi2";
 
 const MainHead = () => {
   return (
@@ -16,7 +17,9 @@ const MainHead = () => {
         />
       </div>
       <Link href="/notification">
-        <span className="pw-icon-btn pw-press">🔔</span>
+        <span className="pw-icon-btn pw-press">
+          <HiOutlineBell className="text-2xl text-primary" />
+        </span>
       </Link>
     </div>
   );
